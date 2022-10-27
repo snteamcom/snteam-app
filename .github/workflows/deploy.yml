@@ -1,0 +1,43 @@
+---
+name: Build a new version of the app
+
+on: repository_dispatch
+
+jobs:
+  build-application:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Checkout the repository of source code
+        uses: actions/checkout@v3
+        with:
+          repository: snteamcom/snteam-sourcecode
+          path: src
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
+      - name: Install npm packages and build
+        run: |
+          cd src
+          npm ci
+          npm run build
+          npm run generate
+      - name: Setup git config
+        run: |
+          git config user.name "GitHub Actions Builder"
+          git config user.email "<>"
+      - name: Copy built files
+        run: |
+          cp -R src/dist/. .
+          rm -rf src
+      - name: Commit the changes
+        run: |
+          git status
+          git add .
+          git commit -m "BUILDER: Application build ${{ github.event.client_payload.version }}"
+          git push origin master
