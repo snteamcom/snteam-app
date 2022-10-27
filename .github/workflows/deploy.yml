@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
 
       - name: Checkout the repository of source code
         uses: actions/checkout@v3
