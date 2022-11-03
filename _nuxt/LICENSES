@@ -6,11 +6,11 @@
 
 
 /*!
- * Vue.js v2.7.13
- * (c) 2014-2022 Evan You
- * Released under the MIT License.
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <http://feross.org>
+ * @license  MIT
  */
-
 
 /*!
  * vue-client-only v0.0.0-semantic-release
@@ -33,4 +33,13 @@
   * 
   * https://github.com/linusborg/portal-vue
   * 
+ */
+
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
+
+
+/*!
+ * Vue.js v2.7.13
+ * (c) 2014-2022 Evan You
+ * Released under the MIT License.
  */
