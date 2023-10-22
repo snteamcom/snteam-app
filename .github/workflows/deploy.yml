@@ -1,7 +1,9 @@
 ---
 name: Build a new version of the app
 
-on: repository_dispatch
+on: 
+  - repository_dispatch
+  - workflow_dispatch
 
 jobs:
   build-application:
