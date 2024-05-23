@@ -14,6 +14,11 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
 
+      - name: Remove old files
+        run: |
+          rm -rf _nuxt/*
+          rm -f index.html
+
       - name: Checkout the repository of source code
         uses: actions/checkout@v3
         with:
